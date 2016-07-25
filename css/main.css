@@ -3,8 +3,29 @@ html, body {
   height: 100%;
 }
 
+ .element-li {
+   background: #F4F6F9;
+   color: #44BBFF;
+   font-size: 8px;
+   height: 60px;
+   display: block;
+   list-style: none;
+   border: 1px solid black;
+}
+
+.search {
+  width: 100%;
+}
+
+.element-link {
+  text-decoration: none;
+  text-align: center;
+  color: #44BBFF;
+  font-size: 20px;
+}
+
 .sidebar {
-  width: 30%;
+  width: 40%;
   height: 100%;
   border-right: 1px solid;
   overflow: scroll;
@@ -13,7 +34,14 @@ html, body {
 }
 
 .main {
-  width: 70%;
+  width: 60%;
+  height: 100%;
+  overflow: scroll;
+  float: left;
+}
+
+.main-table {
+  width: 60%;
   height: 100%;
   overflow: scroll;
   float: left;
