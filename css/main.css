@@ -46,3 +46,9 @@ html, body {
   overflow: scroll;
   float: left;
 }
+
+.main-math {
+  width: 20%;
+  overflow: scroll;
+  float: left;
+}
