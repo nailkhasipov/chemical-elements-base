@@ -51,7 +51,7 @@ $( document ).ready(function(){
         $(".element-li").removeClass('active');
         $(this).addClass('active');
     });
-
+    
     });
   });
 });
