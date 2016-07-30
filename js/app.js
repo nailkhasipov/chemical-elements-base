@@ -2,7 +2,9 @@ $( document ).ready(function(){
   $.getJSON( "database.json", function( database ) {
     window.database = database;
     $.each( database, function( index, element ){
-      var elementNode = "<li class='element-li'><a class='element-link' target=" + index + " href='javascript:;'>" + element["Название"] + "</a></li>";
+      var elementNode = "<li class='element-li' class='active'><a class='element-link' target=" + index + " href='javascript:;'>" + " <span class='formul'>"
+      + element["Брутто-формула"] + "</span>" + " <span class='name'>" + element["Название"] + "</span>" +
+      "<span class='temperature'>" + element["Температура кипения, °K"] + "</span>" + "</a></li>";
       $(".sidebar").append( elementNode );
     });
   });
@@ -40,8 +42,14 @@ $( document ).ready(function(){
         $(window).keydown(function(event){ //ловим событие нажатия клавиши
           if(event.keyCode == 13) { //если это Enter
             $('#edit').blur(); //снимаем фокус с поля ввода
-          }         });
+        }
       });
+    });
+  });
+
+    $(".element-li").on('click', function(){
+        $(".element-li").removeClass('active');
+        $(this).addClass('active');
     });
 
     });

@@ -5,12 +5,17 @@ html, body {
 
  .element-li {
    background: #F4F6F9;
+   text-align: center;
    color: #44BBFF;
    font-size: 8px;
-   height: 60px;
+   height: 145px;
    display: block;
    list-style: none;
-   border: 1px solid black;
+   border: 1px solid gray;
+}
+
+.active {
+  background: white;
 }
 
 .search {
@@ -51,4 +56,18 @@ html, body {
   width: 20%;
   overflow: scroll;
   float: left;
+}
+
+.formul {
+  color: #44BBFF;
+  font-size: 28px;
+
+}
+
+.name {
+  color: #34495E;
+}
+
+.temperature {
+  color: #F0340F;
 }
