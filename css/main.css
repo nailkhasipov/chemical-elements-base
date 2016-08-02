@@ -71,3 +71,8 @@ html, body {
 .temperature {
   color: #F0340F;
 }
+
+.name-program {
+  position: relative;
+  top: -120px;
+}

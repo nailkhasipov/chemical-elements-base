@@ -8,8 +8,11 @@
   </head>
   <body>
     <ul class="sidebar">
-      <input class="search" type="search" value="Поиск"></input>
+      <!-- <input type="text" class="search" type="search" value="Поиск"></input> -->
+      <input id="spterm" type="text" name="spterm" placeholder="Введите начало вашего билета"><br />
+      <div id="spresult">&nbsp;</div>
     </ul>
+
 
 
     <div class="main">
@@ -22,15 +25,20 @@
 
 
 
-    <style type="text/css">#hellopreloader>p{display:none;}#hellopreloader_preload{display: block;position: fixed;z-index: 99999;top: 0;left: -120px;width: 100%;height: 100%;min-width: 1000px;background:  #2ECC71 url(http://hello-site.ru//main/images/preloads/puff.svg) center center no-repeat;background-size:143px;}</style>
-    <div id="hellopreloader"><div id="hellopreloader_preload"></div><p><a href="http://hello-site.ru">Hello-Site.ru. Бесплатный конструктор сайтов.</a></p></div>
-    <script type="text/javascript">var hellopreloader = document.getElementById("hellopreloader_preload");function fadeOutnojquery(el){el.style.opacity = 1;var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);hellopreloader.style.display = "none";}},16);}window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},1000);};</script>
+    <!-- /*<style type="text/css">#hellopreloader_preload{display: block;position: absolute;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background:  #2ECC71  center center no-repeat;background-size:143px;}</style>
+    <div id="hellopreloader">
+        <p class="name-program">Molecul</p>
+      <div id="hellopreloader_preload">
 
-  </body>
-  <script>
+      </div>
+    </div>
+    <script type="text/javascript">var hellopreloader = document.getElementById("hellopreloader_preload");function fadeOutnojquery(el){el.style.opacity = 1;var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);hellopreloader.style.display ="none";}},16);}window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},1000);};
+
+  <script>*/ -->
     // You can also require other files to run in this process
     require('./renderer.js')
   </script>
   <script>window.$ = window.jQuery = require('./lib/jquery-3.1.0.min.js');</script>
   <script src="./js/app.js"></script>
+  </body>
 </html>
