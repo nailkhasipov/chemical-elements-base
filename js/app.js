@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-  $.getJSON( "database.json", function( database ) {
+   $.getJSON( "database.json", function( database ) {
     window.database = database;
     $.each( database, function( index, element ){
       var elementNode = "<li class='element-li' class='active'><a class='element-link' target=" + index + " href='javascript:;'>" + " <span class='formul'>"
@@ -52,6 +52,28 @@ $( document ).ready(function(){
       $(".element-li").removeClass('active');
       $(this).addClass('active');
     });
+
+    $(".button-push").click( function(){
+    var items;
+    $.getJSON("database.json", function( data ){
+      $items = [];
+      $.each(data, function(key, val) {
+        var defined = $("#text").val();
+        if (val.Название == defined) {
+          var element = "<li class='element-li' class='active'><a class='element-link' target=" + key + " href='javascript:;'>" + " <span class='formul'>"
+          + val["Брутто-формула"] + "</span>" + " <span class='name'>" + val["Название"] + "</span>" +
+          "<span class='temperature'>" + val["Температура кипения, °K"] + "</span>" + "</a></li>";
+            $(".result").append( element );
+      }
+    });
+ });
+
+
+});
+
+
+
+
 
     });
   });

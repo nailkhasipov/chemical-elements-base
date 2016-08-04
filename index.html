@@ -8,9 +8,11 @@
   </head>
   <body>
     <ul class="sidebar">
-      <!-- <input type="text" class="search" type="search" value="Поиск"></input> -->
-      <input id="spterm" type="text" name="spterm" placeholder="Введите начало вашего билета"><br />
-      <div id="spresult">&nbsp;</div>
+      <form>
+        <input type="button" class="button-push" value="Нажми"></input>
+        <input type="text" class="search" id="text" value="Поиск"></input>
+      </form>
+       <div class="result"></div>
     </ul>
 
 
@@ -25,7 +27,7 @@
 
 
 
-    <!-- /*<style type="text/css">#hellopreloader_preload{display: block;position: absolute;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background:  #2ECC71  center center no-repeat;background-size:143px;}</style>
+    <!-- <style type="text/css">#hellopreloader_preload{display: block;position: absolute;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;background:  #2ECC71  center center no-repeat;background-size:143px;}</style>
     <div id="hellopreloader">
         <p class="name-program">Molecul</p>
       <div id="hellopreloader_preload">
@@ -34,7 +36,7 @@
     </div>
     <script type="text/javascript">var hellopreloader = document.getElementById("hellopreloader_preload");function fadeOutnojquery(el){el.style.opacity = 1;var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);hellopreloader.style.display ="none";}},16);}window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},1000);};
 
-  <script>*/ -->
+  <script> -->
     // You can also require other files to run in this process
     require('./renderer.js')
   </script>
