@@ -54,6 +54,13 @@ $( document ).ready(function(){
  });
 });
 
+$(window).on('load', function () {
+    var $preloader = $('#page-preloader'),
+        $spinner   = $preloader.find('.spinner');
+    $spinner.fadeOut();
+    $preloader.delay(350).fadeOut('slow');
+});
+
   $(".button-push").click( function(){
   var items;
   $.getJSON("database-test.json", function( data ){
@@ -64,7 +71,8 @@ $( document ).ready(function(){
         var element = "<li class='element-li' class='active'><a class='element-link' target=" + key + " href='javascript:;'>" + " <span class='formul'>"
         + val["Брутто-формула"] + "</span>" + " <span class='name'>" + val["Название"] + "</span>" +
         "<span class='temperature'>" + val["Температура кипения, °K"] + "</span>" + "</a></li>";
-        $(".result").append( element );
+        $(".result").append( element ); // Вставка карточки в див
+        return;
      }
    });
   });

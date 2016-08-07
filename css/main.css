@@ -76,3 +76,33 @@ html, body {
   position: relative;
   top: -120px;
 }
+
+#page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #2ECC71;
+    z-index: 100500;
+}
+
+#page-preloader .spinner {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+    color: white;
+    font-size: 80px;
+    background: url("") no-repeat 50% 50% ;
+    margin: -16px 0 0 -16px;
+}
+
+#page-preloader .professor {
+  position: relative;
+  top: 460px;
+  left: 48%;
+  color: white;
+  font-size: 20px;
+}
