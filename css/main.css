@@ -107,6 +107,6 @@ html, body {
   font-size: 20px;
 }
 
- td:nth-child(1){
-  background: red;
-}
+ /*tr:nth-child(-n+3){
+  display: none;
+}*/

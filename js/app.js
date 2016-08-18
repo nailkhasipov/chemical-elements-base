@@ -1,25 +1,25 @@
 $( document ).ready(function(){
    $.getJSON( "database-test.json", function( database ) {
     window.database = database;
-    $.each( database, function( index, element ){
-      var elementNode = "<li class='element-li' class='active'><a class='element-link' target=" + index + " href='javascript:;'>" + " <span class='formul'>"
-      + element["Брутто-формула"] + "</span>" + " <span class='name'>" + element["Название"] + "</span>" +
-      "<span class='temperature'>" + element["Температура кипения, °K"] + "</span>" + "</a></li>";
-      $(".sidebar").append( elementNode );
-    });
+    renderSidebar( database );
   });
+
 
   $(document).on('click', '.element-link', function(e) {
     var elementId = $(this).attr("target");
     var element = window.database[elementId];
     var table = $('<table cellspacing="0" border="1"/>');
     var tr;
+    var i = 1;
     for ( property in element ) {
       tr = $('<tr/>');
       tr.append("<th>" + property + "</th>");
       tr.append("<td>" + element[property] + "</td>");
-      tr.append("<td class='value'>"+ "Расчетные значения" + "</td>");
+      if ( i > 5 ){
+          tr.append("<td class='value'>"+ "Расчетные значения" + "</td>");
+      }
       $(table).append(tr);
+      i++;
     }
     $(".main").html(table);
 
@@ -46,16 +46,20 @@ $( document ).ready(function(){
     });
   });
 
-  $(".element-li").on('click', function(){
-      $(".element-li").removeClass('active');
-      $(this).addClass('active');
-    });
+$(".element-li").on('click', function(){
+    $(".element-li").removeClass('active');
+    $(this).addClass('active');
+  });
  });
+});
+
+$("#reboot").click(function(){
+  renderSidebar( database );
 });
 
 $(window).on('load', function () {
     var $preloader = $('#page-preloader'),
-        $spinner   = $preloader.find('.spinner');
+    $spinner   = $preloader.find('.spinner');
     $spinner.fadeOut();
     $preloader.delay(350).fadeOut('slow');
 });
@@ -65,15 +69,24 @@ $(window).on('load', function () {
   $.getJSON("database-test.json", function( data ){
     $items = [];
     $.each(data, function(key, val) {
-      var defined = $("#text").val();
-      if (val.Название == defined) {
-        var element = "<li class='element-li' class='active'><a class='element-link' target=" + key + " href='javascript:;'>" + " <span class='formul'>"
-        + val["Брутто-формула"] + "</span>" + " <span class='name'>" + val["Название"] + "</span>" +
-        "<span class='temperature'>" + val["Температура кипения, °K"] + "</span>" + "</a></li>";
-        $(".result").append( element ); // Вставка карточки в див
+      var query = $("#search").val();
+      if (val.Название == query) {
+        var newArray = [];
+        newArray.push(data[key]);
+        renderSidebar(newArray);
         return;
      }
    });
   });
  });
 });
+
+function renderSidebar( database ) {
+  $(".result").empty();
+  $.each( database, function( index, element ){
+    var elementNode = "<li class='element-li' class='active'><a class='element-link' target=" + index + " href='javascript:;'>" + " <span class='formul'>"
+    + element["Брутто-формула"] + "</span>" + " <span class='name'>" + element["Название"] + "</span>" +
+    "<span class='temperature'>" + element["Температура кипения, °K"] + "</span>" + "</a></li>";
+    $(".result").append( elementNode );
+  });
+}
