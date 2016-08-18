@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-   $.getJSON( "database-test.json", function( database ) {
+   $.getJSON( "database.json", function( database ) {
     window.database = database;
     renderSidebar( database );
   });
@@ -66,7 +66,7 @@ $(window).on('load', function () {
 
   $(".button-push").click( function(){
   var items;
-  $.getJSON("database-test.json", function( data ){
+  $.getJSON("database.json", function( data ){
     $items = [];
     $.each(data, function(key, val) {
       var query = $("#search").val();
