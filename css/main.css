@@ -106,3 +106,7 @@ html, body {
   color: white;
   font-size: 20px;
 }
+
+ td:nth-child(1){
+  background: red;
+}

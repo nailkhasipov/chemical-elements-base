@@ -15,7 +15,6 @@ $( document ).ready(function(){
     var table = $('<table cellspacing="0" border="1"/>');
     var tr;
     for ( property in element ) {
-      console.log(property);
       tr = $('<tr/>');
       tr.append("<th>" + property + "</th>");
       tr.append("<td>" + element[property] + "</td>");
@@ -25,10 +24,10 @@ $( document ).ready(function(){
     $(".main").html(table);
 
 
-      $(function() { $('.value').click(function(e) {
-        var t = e.target || e.srcElement;
-        var elm_name = t.tagName.toLowerCase();
-          if(elm_name == 'input') {return false;}
+    $(function() { $('.value').click(function(e) {
+      var t = e.target || e.srcElement;
+      var elm_name = t.tagName.toLowerCase();
+        if(elm_name == 'input') {return false;}
         var val = $(this).html();
         var code = '<input type="text" id="edit" value="'+val+'" />';
 
