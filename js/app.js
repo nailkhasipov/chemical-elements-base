@@ -1,7 +1,7 @@
 $( document ).ready(function(){
    $.getJSON( "database.json", function( database ) {
     window.database = database;
-    renderSidebar( database );
+    renderSidebar( window.database );
   });
 
 
@@ -55,6 +55,7 @@ $(".element-li").on('click', function(){
 
 $("#reboot").click(function(){
   renderSidebar( database );
+  $("#elements-list").show();
 });
 
 $(window).on('load', function () {
@@ -65,28 +66,33 @@ $(window).on('load', function () {
 });
 
   $(".button-push").click( function(){
-  var items;
-  $.getJSON("database.json", function( data ){
-    $items = [];
-    $.each(data, function(key, val) {
-      var query = $("#search").val();
-      if (val.Название == query) {
-        var newArray = [];
-        newArray.push(data[key]);
-        renderSidebar(newArray);
-        return;
-     }
-   });
+    search();
+    var items;
+    $.getJSON("database.json", function( data ){
+      $items = [];
+      $.each(data, function(key, val) {
+        var query = $("#search").val();
+        if (val.Название == query) {
+          var newArray = [];
+          newArray.push(data[key]);
+          renderSidebar(newArray);
+          return;
+       }
+     });
   });
  });
 });
 
 function renderSidebar( database ) {
-  $(".result").empty();
+  $("#search-result").empty();
   $.each( database, function( index, element ){
     var elementNode = "<li class='element-li' class='active'><a class='element-link' target=" + index + " href='javascript:;'>" + " <span class='formul'>"
     + element["Брутто-формула"] + "</span>" + " <span class='name'>" + element["Название"] + "</span>" +
     "<span class='temperature'>" + element["Температура кипения, °K"] + "</span>" + "</a></li>";
-    $(".result").append( elementNode );
+    $("#search-result").append( elementNode );
   });
 }
+
+  function search(){
+    $("#elements-list").hide();
+  }
