@@ -8,7 +8,7 @@ $( document ).ready(function(){
   $(document).on('click', '.element-link', function(e) {
     var elementId = $(this).attr("target");
     var element = window.database[elementId];
-    var table = $('<table cellspacing="0" border="1"/>');
+    var table = $('<table cellspacing = 0 border= 1/>');
     var tr;
     var i = 1;
     for ( property in element ) {
